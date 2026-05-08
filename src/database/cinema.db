@@ -1,0 +1,43 @@
+from connection import get_connection
+
+connection = get_connection()
+cursor = connection.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS cinemas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    cidade TEXT NOT NULL,
+    estado TEXT NOT NULL,
+    endereco TEXT NOT NULL,
+    capacidade INTEGER NOT NULL
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS filmes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    duracao INTEGER NOT NULL,
+    classificacao TEXT NOT NULL
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS sessoes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    filme_id INTEGER NOT NULL,
+    cinema_id INTEGER NOT NULL,
+    data TEXT NOT NULL,
+    horario TEXT NOT NULL,
+    publico INTEGER DEFAULT 0,
+
+    FOREIGN KEY (filme_id) REFERENCES filmes(id),
+    FOREIGN KEY (cinema_id) REFERENCES cinemas(id)
+)
+""")
+
+connection.commit()
+connection.close()
+
+print("Tabelas criadas com sucesso!")

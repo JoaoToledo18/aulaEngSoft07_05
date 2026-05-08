@@ -1,0 +1,15 @@
+@startuml
+
+start
+
+:Acessar programação;
+
+:Selecionar cinema;
+
+:Consultar sessões disponíveis;
+
+:Exibir filmes e horários;
+
+stop
+
+@enduml

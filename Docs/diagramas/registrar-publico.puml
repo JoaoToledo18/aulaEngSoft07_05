@@ -1,0 +1,18 @@
+@startuml
+
+start
+
+:Selecionar sessão;
+
+:Informar quantidade
+de espectadores;
+
+:Validar capacidade do cinema;
+
+:Registrar público;
+
+:Exibir confirmação;
+
+stop
+
+@enduml

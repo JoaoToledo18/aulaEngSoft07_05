@@ -1,0 +1,18 @@
+@startuml
+
+start
+
+:Selecionar cadastro de sessão;
+
+:Informar filme, cinema,
+data e horário;
+
+:Validar informações;
+
+:Salvar sessão;
+
+:Exibir confirmação de cadastro;
+
+stop
+
+@enduml
